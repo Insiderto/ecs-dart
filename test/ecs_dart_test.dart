@@ -19,10 +19,10 @@ void main() {
 
     test('event handler system should handle event', (){
       final ecs = EcsDart();
-      final addInt = StreamController<int>.broadcast(sync: true);
+      final numberStreamController = StreamController<int>.broadcast(sync: true);
       final entity = ecs.addEntity('1', components: [NumberComponent()..number=0]);
-      ecs.registerSystem(HandleIntStreamSystem(addInt.stream));
-      addInt.add(10);
+      ecs.registerSystem(HandleNumberStreamSystem(numberStreamController.stream));
+      numberStreamController.add(10);
       expect(entity.getComponent<NumberComponent>().number, 10);
     });
 

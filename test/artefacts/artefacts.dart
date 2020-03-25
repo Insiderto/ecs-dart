@@ -20,8 +20,8 @@ class IncrementSystem extends ExecuteSystem {
   }
 }
 
-class HandleIntStreamSystem extends EventHandlerSystem<int> {
-  HandleIntStreamSystem(Stream<int> stream) : super(stream);
+class HandleNumberStreamSystem extends EventHandlerSystem<int> {
+  HandleNumberStreamSystem(Stream<int> stream) : super(stream);
 
   @override
   void handle(int event) {
@@ -30,5 +30,4 @@ class HandleIntStreamSystem extends EventHandlerSystem<int> {
       intData.number = event;
     });
   }
-
 }
