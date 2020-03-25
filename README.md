@@ -1,6 +1,5 @@
 Dart realisation of ECS pattern
 
-Created from templates made available by Stagehand under a BSD-style
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Usage
