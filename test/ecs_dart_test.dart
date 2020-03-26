@@ -26,6 +26,22 @@ void main() {
       expect(entity.getComponent<NumberComponent>().number, 10);
     });
 
+    test('antonym component test', (){
+      final ecs = EcsDart();
+      final entity = ecs.addEntity('1', components: [True()]);
+      entity.setComponent(False());
+      expect(entity.components.length, 1);
+      expect(entity.has<False>(), isTrue);
+      expect(entity.has<True>(), isFalse);
+
+    });
+    test('antonym  component should be added test', (){
+      final ecs = EcsDart();
+      final entity = ecs.addEntity('1', components: [True()]);
+      expect(entity.components.length, 1);
+      expect(entity.has<True>(), isTrue);
+
+    });
     test('components selection tests', () {
       final ecs = EcsDart();
       ecs.addEntity('1', components: [A(), B()]);

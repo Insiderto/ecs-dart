@@ -1,4 +1,5 @@
 import 'package:ecs_dart/ecs_dart.dart';
+import 'package:ecs_dart/src/core/antonym_component.dart';
 
 class NumberComponent implements Component {
   int number;
@@ -9,6 +10,9 @@ class B implements Component {}
 class C implements Component {}
 class D implements Component {}
 class G implements Component {}
+
+class False extends AntonymComponent<True> {}
+class True extends AntonymComponent<False> {}
 
 class IncrementSystem extends ExecuteSystem {
   @override

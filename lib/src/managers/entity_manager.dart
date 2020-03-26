@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
 
+import 'package:ecs_dart/src/core/antonym_component.dart';
 import 'package:ecs_dart/src/core/component.dart';
 import 'package:ecs_dart/src/events/entity_created_event.dart';
 import 'package:ecs_dart/src/events/entity_removed_event.dart';
@@ -20,7 +21,7 @@ class Entity {
   int get hashCode => id.hashCode ^ name.hashCode;
 
   Entity operator +(Component c) {
-    _components[c.runtimeType] = c;
+    setComponent(c);
     return this;
   }
 
@@ -54,6 +55,14 @@ class Entity {
   }
 
   void setComponent(Component component) {
+    if (component is AntonymComponent) {
+      final antonymType = component.antonym;
+      if (has(componentType: antonymType)) {
+        _components.remove(antonymType);
+        _components[component.runtimeType] = component;
+        return;
+      }
+    }
     _components[component.runtimeType] = component;
   }
 
