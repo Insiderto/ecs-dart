@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:ecs_dart/src/core/antonym_component.dart';
-import 'package:ecs_dart/src/core/component.dart';
+import 'package:ecs_dart/src/components/component.dart';
 import 'package:ecs_dart/src/events/entity_created_event.dart';
 import 'package:ecs_dart/src/events/entity_removed_event.dart';
 

@@ -1,5 +1,4 @@
 import 'package:ecs_dart/ecs_dart.dart';
-import 'package:ecs_dart/src/core/antonym_component.dart';
 
 class NumberComponent implements Component {
   int number;

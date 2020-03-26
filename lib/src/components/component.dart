@@ -1,4 +1,4 @@
-import 'package:ecs_dart/ecs_dart.dart';
+abstract class Component {}
 
 abstract class AntonymComponent<T extends Component> extends Component {
   final Type antonym;
