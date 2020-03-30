@@ -10,3 +10,7 @@ abstract class System {
 
   set entities(EntityManager world) => _entities = world;
 }
+
+abstract class OnRegister {
+  void onRegister();
+}

@@ -9,6 +9,9 @@ class SystemManager {
   Iterable<ExecuteSystem> get executeSystems => _systems.entries.where((entry)=>entry.value).map((entry)=>entry.key);
 
   System register(System system) {
+    if (system is OnRegister) {
+      (system as OnRegister).onRegister();
+    }
     if (system is ExecuteSystem) {
       _systems[system]=true;
     }
@@ -25,5 +28,5 @@ class SystemManager {
 
   bool isActive(ExecuteSystem system) => _systems[ExecuteSystem];
 
-  Iterable<System> registerAll(Iterable<System> systems) => systems.map(register);
+  Iterable<System> registerAll(Iterable<System> systems) => systems.map(register).toList();
 }
