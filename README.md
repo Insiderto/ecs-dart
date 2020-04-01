@@ -11,18 +11,18 @@ import 'package:ecs_dart/ecs_dart.dart';
 
 void main() {
   final ecs = EcsDart();
-  
+
   final entity = ecs.addEntity('1', components: [NumberComponent()..number=0]);
   final numberStreamController = StreamController<int>.broadcast(sync: true);
-  
+
   ecs.registerSystem(IncrementSystem());
   ecs.registerSystem(HandleNumberStreamSystem(numberStreamController.stream));
 
-  numberStreamController.add(10); 
+  numberStreamController.add(10);
   ecs.update(); // this can be used in requestAnimationFrame or another loop with fixed update time
 
-  //entity.getComponent<NumberComponent>().number == 11 
-  
+  //entity.getComponent<NumberComponent>().number == 11
+
 }
 // Execute systems are simple and executes on every update call;
 class IncrementSystem extends ExecuteSystem {
@@ -57,7 +57,7 @@ class NumberComponent implements Component {
 
 class ImmutableNumberComponent implements Component {
   final int number;
-  
+
   ImmutableNumberComponent(this.number);
 }
 

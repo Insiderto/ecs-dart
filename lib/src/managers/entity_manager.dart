@@ -7,17 +7,16 @@ import 'package:ecs_dart/src/events/entity_removed_event.dart';
 
 class Entity {
   final int id;
-  final String name;
   bool isAlive = true;
 
   final Map<Type, Component> _components = <Type, Component>{};
 
-  Entity._(this.id, this.name);
+  Entity._(this.id);
 
   Iterable<Component> get components => _components.values;
 
   @override
-  int get hashCode => id.hashCode ^ name.hashCode;
+  int get hashCode => id.hashCode;
 
   Entity operator +(Component c) {
     setComponent(c);
@@ -34,7 +33,7 @@ class Entity {
 
   @override
   bool operator ==(other) {
-    return other is Entity && other.id == id && other.name == name;
+    return other is Entity && other.id == id;
   }
 
   T getComponent<T extends Component>() {
@@ -87,9 +86,9 @@ abstract class EntityManager {
   Stream<EntityRemovedEvent> get onEntityRemoved => _onEntityRemoved.stream;
 
   Entity operator [](int id) => _entities[id];
-
-  Entity addEntity(String name, {Iterable<Component> components = const <Component>[]}) {
-    final entity = Entity._(_newEntityId++, name)..setComponents(components);
+  /// Creates entity
+  Entity addEntity({Iterable<Component> components = const <Component>[]}) {
+    final entity = Entity._(_newEntityId++)..setComponents(components);
     _entities[entity.id] = entity;
     _onEntityCreated.add(EntityCreatedEvent(entity.id));
     return entity;

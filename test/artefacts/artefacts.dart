@@ -23,7 +23,7 @@ class IncrementSystem extends ExecuteSystem {
   }
 }
 
-class HandleNumberStreamSystem extends EventHandlerSystem<int> {
+class HandleNumberStreamSystem extends StreamSubscriptionSystem<int> {
   HandleNumberStreamSystem(Stream<int> stream) : super(stream);
 
   @override
