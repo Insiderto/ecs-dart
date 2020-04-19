@@ -1,5 +1,8 @@
 name: ecs_dart
 description: Realisation of ECS patter in dart.
+homepage: https://github.com/Insiderto/ecs-dart
+repository: https://github.com/Insiderto/ecs-dart.git
+
 version: 0.1.0
 # homepage: https://www.example.com
 
