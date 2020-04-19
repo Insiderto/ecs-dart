@@ -1,7 +1,5 @@
 Dart realisation of ECS pattern
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ## Usage
 
 A simple usage example:
